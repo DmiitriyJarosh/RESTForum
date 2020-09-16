@@ -1,7 +1,7 @@
 package models
 
 import (
-	u "../utils"
+	u "RESTForum/utils"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/jinzhu/gorm"
 	"golang.org/x/crypto/bcrypt"

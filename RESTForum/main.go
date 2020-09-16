@@ -1,8 +1,8 @@
 package main
 
 import (
-	"./app"
-	"./controllers"
+	"RESTForum/app"
+	"RESTForum/controllers"
 	"fmt"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -22,6 +22,9 @@ func main() {
 
 	router.HandleFunc("/api/me/contacts",
 		controllers.GetContactsFor).Methods("GET")
+
+	router.HandleFunc("/api/me/new/contact",
+		controllers.CreateContact).Methods("POST")
 
 	port := os.Getenv("PORT") //Получить порт из файла .env; мы не указали порт, поэтому при локальном тестировании должна возвращаться пустая строка
 	if port == "" {
