@@ -4,14 +4,12 @@ import (
 	"../models"
 	u "../utils"
 	"encoding/json"
-	"github.com/gorilla/mux"
 	"net/http"
-	"strconv"
 )
 
 var CreateContact = func(w http.ResponseWriter, r *http.Request) {
 
-	user := r.Context().Value("user") . (uint) //Получение идентификатора пользователя, отправившего запрос
+	user := r.Context().Value("user").(uint) //Получение идентификатора пользователя, отправившего запрос
 	contact := &models.Contact{}
 
 	err := json.NewDecoder(r.Body).Decode(contact)
@@ -26,10 +24,9 @@ var CreateContact = func(w http.ResponseWriter, r *http.Request) {
 }
 
 var GetContactsFor = func(w http.ResponseWriter, r *http.Request) {
-
-	params := mux.Vars(r)
-	id, err := strconv.Atoi(params["id"])
-	if err != nil {
+	tmp := r.Context()
+	id, ok := tmp.Value("user").(uint)
+	if !ok {
 		//Переданный параметр пути не является целым числом
 		u.Respond(w, u.Message(false, "There was an error in your request"))
 		return
