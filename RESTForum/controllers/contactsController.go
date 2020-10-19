@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"RESTForum/models"
-	u "RESTForum/utils"
+	"../models"
+	u "../utils"
 	"encoding/json"
 	"net/http"
 )

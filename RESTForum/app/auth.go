@@ -1,8 +1,8 @@
 package app
 
 import (
-	"RESTForum/models"
-	u "RESTForum/utils"
+	"../models"
+	u "../utils"
 	"context"
 	"fmt"
 	jwt "github.com/dgrijalva/jwt-go"

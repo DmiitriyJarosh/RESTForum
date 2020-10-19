@@ -2,9 +2,10 @@ package models
 
 import (
 	"fmt"
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/joho/godotenv"
+	"gorm.io/driver/postgres"
+	_ "gorm.io/driver/postgres"
+	"gorm.io/gorm"
 	"os"
 )
 
@@ -22,11 +23,11 @@ func init() {
 	dbName := os.Getenv("db_name")
 	dbHost := os.Getenv("db_host")
 
-
 	dbUri := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s", dbHost, username, dbName, password) //Создать строку подключения
 	fmt.Println(dbUri)
 
-	conn, err := gorm.Open("postgres", dbUri)
+	// Connect to db
+	conn, err := gorm.Open(postgres.Open(dbUri), &gorm.Config{})
 	if err != nil {
 		fmt.Print(err)
 	}

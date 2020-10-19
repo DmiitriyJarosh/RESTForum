@@ -1,10 +1,10 @@
 package models
 
 import (
-	u "RESTForum/utils"
+	u "../utils"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/jinzhu/gorm"
 	"golang.org/x/crypto/bcrypt"
+	"gorm.io/gorm"
 	"os"
 	"strings"
 )

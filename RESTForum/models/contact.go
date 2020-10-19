@@ -1,9 +1,9 @@
 package models
 
 import (
-	u "RESTForum/utils"
+	u "../utils"
 	"fmt"
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 )
 
 type Contact struct {

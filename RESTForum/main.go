@@ -1,8 +1,8 @@
 package main
 
 import (
-	"RESTForum/app"
-	"RESTForum/controllers"
+	"./app"
+	"./controllers"
 	"fmt"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -33,7 +33,7 @@ func main() {
 
 	fmt.Println(port)
 
-	err := http.ListenAndServe(":"+port, router) //Запустите приложение, посетите localhost:8000/api
+	err := http.ListenAndServe(":"+port, router)
 
 	if err != nil {
 		fmt.Print(err)
